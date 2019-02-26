@@ -8,15 +8,24 @@ namespace Bank
 {
     class Customer4
     {
+        static int count = 1;
+        int id=1;
         string name;
         string address;
-        string IC_number;
         int age;
 
-        public Customer4() { name = "null"; address = "null"; IC_number = "null"; age = 18; getValues(); } //default
-        public Customer4(string type) ///for joint account
+        public Customer4() { id +=count++; getValues(); } //default
+        
+        public Customer4(string name, string address, int age)
         {
-            name = "null"; address = "null"; IC_number = "null"; age = 18;
+            id += count++;
+            this.name = name;
+            this.address = address;
+            this.age = age;
+        }
+        public int CID
+        {
+            get { return id; }
         }
         public string Name
         {
@@ -26,11 +35,6 @@ namespace Bank
         {
             get { return address; }
             set { address = value; }
-        }
-        public string IC_Number
-        {
-            get { return IC_number; }
-            set { IC_number = value; }
         }
         public int Age
         {
@@ -43,12 +47,14 @@ namespace Bank
             name = Console.ReadLine();
             Console.Write("\n\tEnter your address : ");
             address = Console.ReadLine();
-            Console.Write("\n\tEnter your ic : ");
-            IC_Number = Console.ReadLine();
             Console.Write("\n\tEnter your Age : ");
             age = int.Parse(Console.ReadLine());
             Console.Write("\n\n");
         }
-       
+        public void Display()
+        {
+            Console.WriteLine("\tCust ID: " + id  +"\t"+ name);
+        }
     }
+
 }

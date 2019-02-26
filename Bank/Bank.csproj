@@ -33,7 +33,7 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <PropertyGroup>
-    <StartupObject>Bank.BankTest3</StartupObject>
+    <StartupObject>Bank.BankTest4</StartupObject>
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="System" />
@@ -54,6 +54,7 @@
     <Compile Include="BankTest1.cs" />
     <Compile Include="BankTest2.cs" />
     <Compile Include="BankTest3.cs" />
+    <Compile Include="BankTest4.cs" />
     <Compile Include="Customer2.cs" />
     <Compile Include="Customer3.cs" />
     <Compile Include="Customer4.cs" />

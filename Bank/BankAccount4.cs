@@ -8,8 +8,9 @@ namespace Bank
 {
     class BankAccount4
     {
-        static int account_no = 1000; //common memmory for all
-        Customer4 AccountHolder = new Customer4();
+        static int count = 1;
+        int account_no = 1; //common memmory for all
+        Customer4 AccountHolder;
         Customer4 JointHolder;
         double balance;
         string state;
@@ -39,21 +40,21 @@ namespace Bank
         }
         ////account number only used for getting;
         ///
-        public BankAccount4()
+        public BankAccount4(Customer4 NewCustomer)
         {
-            account_no += 1;
-            balance = 0;
-            state = "OPEN";
-            interest = 0.07;
-            Console.WriteLine("Creating an account   ------> \n");
-            Console.Write("Want a Joint Account Holder --press 1 to make :");
-            JointHolder = new Customer4("Joint");
-            if (Console.ReadLine() == "1")
-            {
-                JointHolder = new Customer4();
-            }
-
+                JointHolder = null;
+                account_no += count++;
+                balance = 0;
+                state = "OPEN";
+                interest = 0.07;
+                AccountHolder = NewCustomer;
+            Console.WriteLine("Creating an account   ------> done\n");
         } ///default Constructor
+        public void addJoint(Customer4 NewCustomer)
+        {
+            JointHolder = NewCustomer;
+            Console.WriteLine("Converting as Joint account   ------> done\n");
+        }
         public bool Withdraw(double amt)
         {
             if (balance > amt)
@@ -62,7 +63,6 @@ namespace Bank
                 // Console.WriteLine("\t\t\tWithdraw Succeed ");
                 return true;
             }
-            Console.WriteLine("\t\t\tInsufficient Funds ");
             return false;
         }
         public void Deposite(double amount)
@@ -73,20 +73,30 @@ namespace Bank
         public void CreditInterest()
         {
             balance += balance * interest;
-            Console.WriteLine("\t\t\tInterst Credited $" + (balance * interest));
+            Console.WriteLine("\t\t\tInterst Credited $" + (balance * interest) +"\n\t\t\tFinal Balance : "+balance);
         }
-        public void PrintCustomerData()
+        public void PrintAccountData()
         {
-            Console.WriteLine("\n\n\tAccount No : ".PadRight(20, ' ') + account_no);
-            Console.WriteLine("\tName : ".PadRight(20, ' ') + Cus.Name);
+            Console.WriteLine("\n\n\tID No : ".PadRight(20, ' ') + AccountHolder.CID);
+         //   Console.WriteLine("\n\n\tID No : ".PadRight(20, ' ') + Joint.CID);
+            Console.WriteLine("\tAccount No : ".PadRight(20, ' ') + account_no);
+            Console.WriteLine("\tOwner : ".PadRight(20, ' ') + Cus.Name);
             Console.WriteLine("\tAddress : ".PadRight(20, ' ') + Cus.Address);
             Console.WriteLine("\tAge : ".PadRight(20, ' ') + Cus.Age);
-            Console.WriteLine("\tIC Number : ".PadRight(20, ' ') + Cus.IC_Number);
             Console.WriteLine("\tBalance : ".PadRight(20, ' ') + "$" + balance);
             Console.WriteLine("\tAccount state now is ".PadRight(20, ' ') + state + "\n\n");
 
+            if (JointHolder!=null)
+            {
+                Console.WriteLine("\nYour Joint Holder");
+                Console.WriteLine("\n\n\tID No : ".PadRight(20, ' ') + JointHolder.CID);
+                Console.WriteLine("\tJoint Owner : ".PadRight(20, ' ') + JointHolder.Name);
+                Console.WriteLine("\tAddress : ".PadRight(20, ' ') + JointHolder.Address);
+                Console.WriteLine("\tAge : ".PadRight(20, ' ') + JointHolder.Age);
+            }
+
         }
-        public bool Transfer(BankAccount3 A, double money)
+        public bool Transfer(BankAccount4 A, double money)
         {
             bool k = this.Withdraw(money);
             if (k)
@@ -95,7 +105,6 @@ namespace Bank
                 Console.WriteLine("Transfer Succeeded");
                 return k;
             }
-            Console.WriteLine("Transfer Failed");
             return k;
         }
     }
