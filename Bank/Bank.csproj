@@ -33,7 +33,7 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <PropertyGroup>
-    <StartupObject>Bank.BankTest2</StartupObject>
+    <StartupObject>Bank.BankTest3</StartupObject>
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="System" />
@@ -48,9 +48,15 @@
   <ItemGroup>
     <Compile Include="BankAccount1.cs" />
     <Compile Include="BankAccount2.cs" />
+    <Compile Include="BankAccount3.cs" />
+    <Compile Include="BankAccount4.cs" />
+    <Compile Include="BankBranch4.cs" />
     <Compile Include="BankTest1.cs" />
     <Compile Include="BankTest2.cs" />
-    <Compile Include="Customer.cs" />
+    <Compile Include="BankTest3.cs" />
+    <Compile Include="Customer2.cs" />
+    <Compile Include="Customer3.cs" />
+    <Compile Include="Customer4.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

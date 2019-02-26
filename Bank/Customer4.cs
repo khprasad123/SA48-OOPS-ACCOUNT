@@ -6,14 +6,18 @@ using System.Threading.Tasks;
 
 namespace Bank
 {
-    class Customer
+    class Customer4
     {
         string name;
         string address;
         string IC_number;
         int age;
-        
-        public Customer() { name = "null";address = "null";IC_number = "null";age = 18; } //default
+
+        public Customer4() { name = "null"; address = "null"; IC_number = "null"; age = 18; getValues(); } //default
+        public Customer4(string type) ///for joint account
+        {
+            name = "null"; address = "null"; IC_number = "null"; age = 18;
+        }
         public string Name
         {
             get { return name; }
@@ -45,6 +49,6 @@ namespace Bank
             age = int.Parse(Console.ReadLine());
             Console.Write("\n\n");
         }
-
+       
     }
 }

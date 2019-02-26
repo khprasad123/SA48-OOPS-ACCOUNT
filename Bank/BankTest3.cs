@@ -6,18 +6,16 @@ using System.Threading.Tasks;
 
 namespace Bank
 {
-    class BankTest2
+    class BankTest3
     {
         static void Main()
         {
-
-            BankAccount2 B1 = new BankAccount2();
+            BankAccount3 B1 = new BankAccount3();
             B1.Deposite(1200);
             B1.PrintCustomerData();
 
-            BankAccount2 B2 = new BankAccount2();
-            B1.Transfer(B2, 100);
-            B2.PrintCustomerData();
+            Console.WriteLine(B1.Joint.Name);
+            
         }
     }
 }
