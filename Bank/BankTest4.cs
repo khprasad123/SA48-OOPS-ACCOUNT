@@ -29,11 +29,16 @@ namespace Bank
             B1.AddCustomer(C4);
             B1.AddCustomer(C5);
             B1.AddCustomer(C6);
-
+            /*
+                FIRST WE WANT TO CREATE BANK BRANCH
+                USING THAT BRANCH CREATE CLIENTS ACCORDINGLY
+                SO BANK BRANCH IS ALWAYS THE PARENT OBJECT 
+                   BANK-BRANCH.FUNCTION ----THIS SHOULD BE THE IMPLEMENTATION
+                
+                EACH CUSTOMER IS ASSIGNED TO SEPERATE ACCOUNTS
+                REFER FUNTION DEFINISTION FOR BETTER UNDERSTANDING
+            */
            
-
-
-
             B1.AssignAccount(C2);
             B1.AssignAccount(C3);
            
